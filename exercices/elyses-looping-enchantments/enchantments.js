@@ -4,13 +4,19 @@
  * Determine how many cards of a certain type there are in the deck
  *
  * @param {number[]} stack
- * @param {number} card
+ * @param {number} cardType
  *
  * @returns {number} number of cards of a single type there are in the deck
  */
-export function cardTypeCheck(stack, card) {
+export function cardTypeCheck(stack, cardType) {
   // 🚨 Use .forEach
-  throw new Error('Implement the cardTypeCheck function');
+  let count = 0;
+  stack.forEach(card => {
+    if (card === cardType) {
+      count++;
+    }
+  });
+  return count;
 }
 
 /**
@@ -22,5 +28,19 @@ export function cardTypeCheck(stack, card) {
  */
 export function determineOddEvenCards(stack, type) {
   // 🚨 Use a `for...of` loop
-  throw new Error('Implement the determineOddEvenCards function');
+  let count = 0;
+  for (const card of stack) {
+    if (type) {
+      // even
+      if (card % 2 === 0) {
+        count++;
+      }
+    } else {
+      // odd
+      if (card % 2 !== 0) {
+        count++;
+      }
+    }
+  }
+  return count;
 }
